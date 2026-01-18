@@ -1,0 +1,17 @@
+# Frontend .gitignore
+node_modules/
+dist/
+build/
+.DS_Store
+*.local
+.env
+.env.local
+.env.*.local
+*.pem
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.parcel-cache
+.cache
