@@ -103,7 +103,7 @@ export default function Index() {
               <h2 className="text-lg font-semibold text-gray-800 mb-4">Step 2: Select Your Limit</h2>
               <ProgressBar currentStep={1} totalSteps={3} />
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 my-8">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 my-8">
                 {LIMIT_OPTIONS.map((option) => (
                   <LimitCard
                     key={option.amount}
@@ -120,12 +120,16 @@ export default function Index() {
 
               <SecurityBadges />
 
-              <button
-                onClick={handleGetLimit}
-                className="w-full bg-fuliza-green hover:bg-green-700 text-white font-bold py-3 px-4 rounded-lg mt-8 transition-colors text-lg"
-              >
-                Get Limit Now
-              </button>
+              {selectedLimit && (
+                <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-200 md:static md:bg-transparent md:border-t-0 md:p-0 animate-slide-up z-50">
+                  <button
+                    onClick={handleGetLimit}
+                    className="w-full bg-fuliza-green hover:bg-green-700 text-white font-bold py-3 px-4 rounded-lg transition-all transform active:scale-95 shadow-lg text-lg"
+                  >
+                    Get Limit Now (Allow for Ksh {selectedLimit.toLocaleString()})
+                  </button>
+                </div>
+              )}
             </div>
           </>
         )}
